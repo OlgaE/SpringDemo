@@ -10,8 +10,18 @@
 	
 	<bean id="newtriangle" class="com.demo.NewTriangle" >
 		<property name="pointA" ref="zeropoint" />
+		
 		<property name="pointB" ref="point2" />
-		<property name="pointC" ref="point3" />
+		
+		<!--  Using "inner" beans, here "id" is not needed: -->
+		<!--  pointC is required only inside NewTriangle class and nowhere else. -->
+		<property name="pointC" >
+			<bean class="com.demo.Point" >
+				<property name="x" value="20" />
+				<property name="y" value="0" />
+			</bean>
+		</property>
+		
 	</bean>
 	
 	<bean id="zeropoint" class="com.demo.Point" >
@@ -22,8 +32,5 @@
 		<property name="x" value="-20" />
 		<property name="y" value="0" />
 	</bean>
-	<bean id="point3" class="com.demo.Point" >
-		<property name="x" value="20" />
-		<property name="y" value="0" />
-	</bean>
+	
 </beans>
