@@ -22,5 +22,10 @@ public class DrawingApp {
 		// Triangle triangle = (Triangle) factory.getBean("triangle");
 		Triangle triangle = (Triangle) context.getBean("triangle");
 		triangle.draw();
+		
+		// Injecting objects:
+		// Using Spring to initialize three poins A, B and C of class NewTriangle:
+		NewTriangle newtriangle = (NewTriangle) context.getBean("newtriangle");
+		newtriangle.draw();
 	}
 }
