@@ -35,5 +35,17 @@ public class DrawingApp {
 		System.out.println("Using collections:");
 		ListTriangle listtriangle = (ListTriangle) context.getBean("listtriangle");
 		listtriangle.draw();
+		
+		// Using dependency injection, old way:
+		System.out.println("");
+		System.out.println("Using dependency injection:");
+		TriangleWithInterface triangleInterface = (TriangleWithInterface) context.getBean("trianglewithinterface");
+		triangleInterface.draw();
+		
+		// Using dependency injection, calling a Shape interface:
+		System.out.println("");
+		System.out.println("Dependency injection, calling Shape interface:");
+		Shape shape = (Shape) context.getBean("circle");
+		shape.draw();
 	}
 }

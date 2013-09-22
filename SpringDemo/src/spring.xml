@@ -8,6 +8,14 @@
 		<constructor-arg value="Equilateral"/>
 	</bean>
 	
+	<bean id="trianglewithinterface" class="com.demo.TriangleWithInterface">
+		<property name="type" value="with interface" />
+	</bean>
+	
+	<bean id="circle" class="com.demo.Circle">
+		<property name="center" ref="zeropoint" />
+	</bean>
+	
 	<bean id="newtriangle" class="com.demo.NewTriangle" >
 		<property name="pointA" ref="zeropoint" />
 		
@@ -43,4 +51,6 @@
 			</list>
 		</property>
 	</bean>
+	
+	
 </beans>
