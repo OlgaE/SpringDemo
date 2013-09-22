@@ -13,7 +13,7 @@
 		
 		<property name="pointB" ref="point2" />
 		
-		<!--  Using "inner" beans, here "id" is not needed: -->
+		<!--  Using "inner" beans, here "id" and "ref" are not needed: -->
 		<!--  pointC is required only inside NewTriangle class and nowhere else. -->
 		<property name="pointC" >
 			<bean class="com.demo.Point" >
@@ -33,4 +33,14 @@
 		<property name="y" value="0" />
 	</bean>
 	
+	<!-- Using collections: -->
+	<bean id="listtriangle" class="com.demo.ListTriangle" >
+		<property name="points">
+			<list>
+				<ref bean="zeropoint" />
+				<ref bean="point2" />
+				
+			</list>
+		</property>
+	</bean>
 </beans>

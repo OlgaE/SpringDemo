@@ -25,7 +25,15 @@ public class DrawingApp {
 		
 		// Injecting objects:
 		// Using Spring to initialize three poins A, B and C of class NewTriangle:
+		System.out.println("");
+		System.out.println("Injecting objects:");
 		NewTriangle newtriangle = (NewTriangle) context.getBean("newtriangle");
 		newtriangle.draw();
+		
+		// Using collections:
+		System.out.println("");
+		System.out.println("Using collections:");
+		ListTriangle listtriangle = (ListTriangle) context.getBean("listtriangle");
+		listtriangle.draw();
 	}
 }
