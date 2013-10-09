@@ -45,7 +45,7 @@ public class DrawingApp {
 		// Using dependency injection, calling a Shape interface:
 		System.out.println("");
 		System.out.println("Dependency injection, calling Shape interface:");
-		Shape shape = (Shape) context.getBean("circle");
+		Shape shape = (Shape) context.getBean("trianglewithinterface");
 		shape.draw();
 	}
 }
