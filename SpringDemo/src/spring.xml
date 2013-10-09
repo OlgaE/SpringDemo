@@ -4,9 +4,16 @@
 <beans>
 	<bean id="triangle" class="com.demo.Triangle">
 		<!--  <property name="type" value="Equilateral" />  -->
-		<!--  Using a constructor: -->
+		<!--  Using a constructor instead: -->
 		<constructor-arg value="Equilateral"/>
 	</bean>
+	
+	<!-- Id of the bean is the same as a member field of the class: -->
+	<bean id="type" class="com.demo.TriangleWithInterface" autowire="byName">
+		<!-- <property name="type" value="with interface" />  -->
+	</bean>
+	<!-- autowire = "byType" works if there is only one field of the class.
+		will work in this case too. -->
 	
 	<bean id="trianglewithinterface" class="com.demo.TriangleWithInterface">
 		<property name="type" value="with interface" />
@@ -21,15 +28,15 @@
 		
 		<property name="pointB" ref="point2" />
 		
-		<!--  Using "inner" beans, here "id" and "ref" are not needed: -->
-		<!--  pointC is required only inside NewTriangle class and nowhere else. -->
+		<!--  Using "inner" beans, here "id" and "ref" are not
+		      needed. pointC is required only inside NewTriangle 
+		      class and nowhere else. -->
 		<property name="pointC" >
 			<bean class="com.demo.Point" >
 				<property name="x" value="20" />
 				<property name="y" value="0" />
 			</bean>
 		</property>
-		
 	</bean>
 	
 	<bean id="zeropoint" class="com.demo.Point" >
@@ -53,4 +60,6 @@
 	</bean>
 	
 	<bean class="org.springframework.beans.factory.annotation.RequiredAnnotationBeanPostProcessor" />
+	<!--  to include all annotation postprocessors, type:
+	<context:annotation-config /> -->
 </beans>
